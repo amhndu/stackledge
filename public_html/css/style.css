@@ -20,7 +20,8 @@ body .card {
 }
 
 body .card:hover{
-  background: #e8ecf0
+  background: #e8ecf0;
+  transition: 1.0s background;
 }
 
 body .card_left {
