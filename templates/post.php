@@ -3,7 +3,7 @@
     <img src='https://dummyimage.com/74x74/000/fff.png' width="74px" height="74px" />
   </div>
   <div class='card_right'>
-      <h1><a href="<?php echo $post_url?>"><?php echo $post_title?></a></h1>
+  <h1><a href="<?php echo $post_url?>"><?php echo $post_title?></a></h1><?php echo $post_url_domain?>
     <small>
         By <a href=""><?php echo $post_owner ?> </a> in
         <a href=""><?php echo $post_category ?></a>

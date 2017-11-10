@@ -10,9 +10,26 @@ define("FEED_TOP",       4);
 
 define("FEED_SORT_MASK", 4);
 
+function human_timediff_from_mysql($mysqltime)
+{
+    $time = new DateTime($mysqltime);
+    $interval = $time->diff(new DateTime());
+    if ($interval->y > 0)
+        return "$interval->y years ago";
+    if ($interval->m > 0)
+        return "$interval->m months ago";
+    if ($interval->d > 0)
+        return "$interval->d days ago";
+    if ($interval->h > 0)
+        return "$interval->h hours ago";
+    if ($interval->i > 0)
+        return "$interval->i minutes ago";
+    return "just now";
+}
+
 function generate_feed($db_conn, $feed_flags, $opt_arg = null)
 {
-    $query = "SELECT title, url, upvotes, downvotes, owner, category
+    $query = "SELECT title, url, upvotes, downvotes, owner, category, submission_time
               FROM Post ";
 
     switch($feed_flags & FEED_TYPE_MASK)
@@ -48,12 +65,14 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
         }
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes, $post_owner, $post_category);
+        $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes, $post_owner, $post_category, $post_timestamp);
         if ($stmt->num_rows > 0)
         {
             while ($stmt->fetch())
             {
                 $post_votes = $post_upvotes - $post_downvotes;
+                $post_time  = human_timediff_from_mysql($post_timestamp);
+                $post_url_domain = parse_url($post_url)["host"];
                 require("../templates/post.php");
             }
         }
