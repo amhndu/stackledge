@@ -28,7 +28,7 @@
   		<ul>
            <a href="javascript:void(0)" onclick="openLoginModal();"><?php echo $_SESSION['username']; ?></a>
            |
-           <form method = 'post' style="display:inline-block;" action = '/StackLedge/php/header.php' id = 'form' >
+           <form method = 'post' style="display:inline-block;" action = '../php/header.php' id = 'form' >
            <input type = 'hidden' name = 'logout' value = '1'>
            <a href="" data-toggle="modal" onclick = 'document.getElementById("form").submit();'>Logout</a>
            </form>

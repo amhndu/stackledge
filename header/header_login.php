@@ -46,7 +46,7 @@
                              <div class="content">
                                 <div class="error"></div>
                                 <div class="form loginBox">
-                                    <form method="post"  accept-charset="UTF-8" action = '/StackLedge/php/header.php'>
+                                    <form method="post"  accept-charset="UTF-8" action = '../php/header.php'>
                                     <input id="username" class="form-control" type="text" placeholder="Username" name="username">
                                     <input id="password" class="form-control" type="password" placeholder="Password" name="password">
                                     <input class="btn btn-default btn-login" type="submit" value="Login" >
@@ -57,7 +57,7 @@
                         <div class="box">
                             <div class="content registerBox" style="display:none;">
                              <div class="form">
-                                <form method="post" html="{:multipart=&gt;true}" data-remote="true" action="/StackLedge/php/user.php" accept-charset="UTF-8">
+                                <form method="post" html="{:multipart=&gt;true}" data-remote="true" action="../php/user.php" accept-charset="UTF-8">
                                 <input id="username" class="form-control" type="text" placeholder="Username" name="username">
                                 <input id="email" class="form-control" type="text" placeholder="Email" name="email">
                                 <input id="password" class="form-control" type="password" placeholder="Password" name="password">
