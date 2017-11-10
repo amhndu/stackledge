@@ -84,7 +84,7 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
         $stmt->free_result();
     }
     else
-        die("Cannnot prepare statement");
+        die("Cannnot prepare statement: " . $db_conn->error);
 }
 
 ?>

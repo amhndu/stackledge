@@ -20,7 +20,8 @@ body .card {
 }
 
 body .card:hover{
-  background: #e8ecf0
+  background: #e8ecf0;
+  transition: 1.0s background;
 }
 
 body .card_left {
@@ -45,6 +46,7 @@ body .card_right {
 }
 body .card_right h1 {
   color: black;
+  display: inline;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   text-align: left;
@@ -113,4 +115,11 @@ small  a{
 .posts{
   margin: 32px 48px 32px 48px;
   padding-left: 16px;
+}
+.domain{
+  font-size: 11px;
+  display: inline;
+}
+.domain a{
+  color: #888;
 }
