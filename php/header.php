@@ -3,12 +3,12 @@
 	
 	if($loggedin)
 	{
-		require './header_user.php';
+		require '../templates/header_user.php';
 	}
 	else if(!$loggedin && isset($_POST['username']) && isset($_POST['password']))
 	{
-		require 'php/connect.php';		
-		$stmt = $conn->prepare('SELECT passhash FROM User Where username = ?');
+		require 'connect.php';		
+		$stmt = $db_conn->prepare('SELECT passhash FROM User Where username = ?');
 		$stmt->bind_param("s", $_POST['username']);
 
 		$stmt->execute(); 
@@ -22,19 +22,18 @@
 			$loginresult = true;
 			session_start();
 			$_SESSION['username'] = $_POST['username'];
-			require './header/header_user.php';	
+			require '../templates/header_user.php';	
 		}
 		else
 		{
 			$loginresult = false;
-			require './header/header_login.php';
+			require '../templates/header_login.php';
 		}
 		$stmt->close();
-		$conn->close();	
 	}
 	else 
 	{
 		if(isset($_POST['logout']) && session_id()) session_destroy();
-		require './header/header_login.php';	
+		require '../templates/header_login.php';	
 	}	
 ?>
