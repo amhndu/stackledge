@@ -4,6 +4,8 @@
   </div>
   <div class='card_right'>
       <h1><a href="<?php echo $post_url?>"><?php echo $post_title?></a></h1>
+      <div class="domain">(<a href="<?php echo post_url_domain?>"><?php echo post_url_domain?></a>)</div>
+      <br />
     <small>
         By <a href=""><?php echo $post_owner ?> </a> in
         <a href=""><?php echo $post_category ?></a>

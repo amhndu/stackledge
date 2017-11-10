@@ -46,6 +46,7 @@ body .card_right {
 }
 body .card_right h1 {
   color: black;
+  display: inline;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   text-align: left;
@@ -114,4 +115,9 @@ small  a{
 .posts{
   margin: 32px 48px 32px 48px;
   padding-left: 16px;
+}
+.domain{
+  font-size: 12px;
+  font-style: italic;
+  display: inline;
 }
