@@ -1,0 +1,116 @@
+
+body{
+  font-family: sans-serif;
+}
+body .card {
+  width: 90%;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+/**  box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);**/
+  margin: 12px;
+  padding: 16px 12px 16px 12px;
+  border: 1px solid #FFFFFf;
+  overflow: auto;
+}
+
+body .card:hover{
+  background: #e8ecf0
+}
+
+body .card_left {
+  width: 74px;
+  float: left;
+  overflow: hidden;
+  background: transparent;
+}
+body .card_left img {
+  border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  position: relative;
+}
+body .card_right {
+  width: 80%;
+  float: left;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  margin-left: 16px;
+}
+body .card_right h1 {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 0px;
+  margin-bottom: 8px;
+}
+.card_right h1 a {
+  color: #101010;
+}
+
+body .card_right ul {
+  list-style-type: none;
+}
+body .card_right ul li {
+  display: inline;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+small
+{
+font-size: 13px;
+color: #808080;
+text-decoration: none;
+transition: color 0.2s;
+
+}
+
+small  a{
+  text-decoration: none;
+  color: #5383d3;
+  font-weight: bold;
+}
+.card_right a{
+  text-decoration: none;
+}
+.upvote {
+  display: inline-grid;
+  width: 10px;
+  height: 10px;
+  border: 0px;
+  margin: 3px;
+  color: black;
+  background: url('../assets/upvote.gif') no-repeat;
+}
+
+.downvote {
+  display: inline-grid;
+  width: 10px;
+  height: 10px;
+  border: 0px;
+  margin: 3px;
+  color: black;
+  background: url('../assets/upvote.gif') no-repeat;
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipV;
+  -ms-filter: "FlipV";
+}
+
+.posts{
+  margin: 32px 48px 32px 48px;
+  padding-left: 16px;
+}

@@ -6,7 +6,7 @@
     </head>
 <body>
 
-<div>
+<div class="posts">
 <?php
     // require_once(index_header.php)
     require_once('../php/connect.php');
