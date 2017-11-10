@@ -7,15 +7,7 @@
 	}
 	else if(!$loggedin && isset($_POST['username']) && isset($_POST['password']))
 	{
-		$DBServer = 'localhost';
-		$DBUser = 'root';
-		$DBPass = 'aman2610';
-		$DBName = 'redditclone';
-		$conn = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
-		
-		if($conn->connect_error)
-			die("Connection failed: " . $conn->connect_error);
-		
+		require 'php/connect.php';		
 		$stmt = $conn->prepare('SELECT passhash FROM User Where username = ?');
 		$stmt->bind_param("s", $_POST['username']);
 
