@@ -65,9 +65,13 @@
 	      </div>
 	  </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        openLoginModal();
-        <?php if(!$loginresult) echo 'shakeModal();'; ?>
-    });
-</script>
+<?php
+if($prompt)
+{
+    echo '<script type="text/javascript">
+     $(document).ready(function(){
+        openLoginModal();' .
+        (isset($loginresult) and !$loginresult ? 'shakeModal();' : '') .
+     ' }); </script>';
+}
+?>
