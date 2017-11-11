@@ -10,6 +10,7 @@ define("FEED_TOP",       4);
 
 define("FEED_SORT_MASK", 4);
 
+
 function human_timediff_from_mysql($mysqltime)
 {
     $time = new DateTime($mysqltime);
@@ -25,6 +26,13 @@ function human_timediff_from_mysql($mysqltime)
     if ($interval->i > 0)
         return "$interval->i minutes ago";
     return "just now";
+}
+
+function try_get($param, $default = "")
+{
+    if (isset($_GET[$param]))
+        return $_GET[$param];
+    return $default;
 }
 
 function generate_feed($db_conn, $feed_flags, $opt_arg = null)
