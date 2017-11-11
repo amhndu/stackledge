@@ -97,7 +97,6 @@ small  a{
   margin: 3px;
 }
 
-
 .posts{
   margin: 32px 48px 32px 48px;
   padding-left: 16px;
@@ -109,6 +108,9 @@ small  a{
   display: inline;
 }
 
+small a.comment{
+  color: #666d74;
+}
 small a div.vote {
   color: #666666;
   cursor: pointer;

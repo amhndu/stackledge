@@ -20,8 +20,12 @@
             <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i>
           </div>
         </a>
-        &nbsp;&nbsp; <a href=""><?php echo $post_num_comments ?> comments &nbsp;&nbsp; Add Comment</a>
-        &nbsp;&nbsp; <?php echo $post_time?>
+        &nbsp;&nbsp;
+        <a href="<?php echo $post_url?>">
+          <i class="fa fa-comments fa-lg" aria-hidden="true"></i>
+          <?php echo $post_num_comments ?>
+        </a> &nbsp;&nbsp;
+        <a href="<?php echo $post_url?>">Add Comment</a>&nbsp;&nbsp; <?php echo $post_time?>
     </small>
   </div>
 </div>

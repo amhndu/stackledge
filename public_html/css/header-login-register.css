@@ -622,7 +622,6 @@ hr{
   }
   .comments-container .comment .cbox .info .name {
     margin-right: 10px;
-    padding-top: 3px;
   }
   .comments-container .comment .cbox .info .name a {
     font-weight: 600;
@@ -631,10 +630,10 @@ hr{
   }
   .comments-container .comment .cbox .info .vote {
     width: 70px;
+    display: inline;
     text-align: center;
   }
   .comments-container .comment .cbox .info .vote .votes {
-    padding-top: 3px;
     padding-left: 4px;
     text-align: center;
     margin-right: 4px;
@@ -650,7 +649,6 @@ hr{
     -webkit-opacity: 0.6;
     -moz-opacity: 0.6;
     opacity: 0.6;
-    margin-top: 3px;
   }
   .comments-container .comment .cbox .info .vote .iconfont:hover {
     -webkit-opacity: 0.8;
@@ -693,9 +691,19 @@ hr{
     color: #549EC9;
   }
   .comments-container .comment .cbox .info .date {
-    padding-top: 3px;
     color: #999999;
   }
+
+  .comments-container .comment .cbox .info .reply {
+    float: right;
+  }
+  
+  .comments-container .comment .cbox .info .reply a{
+    color: #5383d3;
+    padding-right: 8px;
+    text-decoration: none;
+  }
+
   .comments-container .comment .cbox .text {
     overflow: hidden;
     padding-left: 15px;

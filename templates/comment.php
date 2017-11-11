@@ -10,6 +10,7 @@
           <div class="iconfont"><i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></div>
         </div>
         <div class="date"><?php echo $post_time?></div>
+        <div class="reply"><a href="">reply</a></div>
       </div>
       <div class="text">
         <div class="md">
