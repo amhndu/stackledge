@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body{
   font-family: sans-serif;
@@ -17,6 +19,7 @@ body .card {
   padding: 16px 12px 16px 12px;
   border: 1px solid #FFFFFf;
   overflow: auto;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body .card:hover{
@@ -72,7 +75,7 @@ body .card_right ul li {
 small
 {
 font-size: 13px;
-color: #808080;
+color: #666d74;
 text-decoration: none;
 transition: color 0.2s;
 
@@ -80,7 +83,7 @@ transition: color 0.2s;
 
 small  a{
   text-decoration: none;
-  color: #5383d3;
+  color: #003d80;
   font-weight: bold;
 }
 .card_right a{
@@ -121,6 +124,12 @@ small a div.vote:hover {
 }
 
 small a div.vote:active {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  color:red;
+}
+small a div.vote.red {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
