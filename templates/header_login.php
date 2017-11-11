@@ -94,11 +94,12 @@ if($prompt)
      ' }); </script>';
 }
 
-if(isset($errorMsg))
+if(isset($_SESSION['errorMsg']))
 {
-	echo '<script type = "text/javascript">
+	echo '<script type ="text/javascript">
 	 $(document).ready(function(){
-		 shakeModalRegister('.$errorMsg.');
+		 shakeModalRegister("'.$_SESSION['errorMsg'].'");
 	 }); </script>';
+	unset($_SESSION['errorMsg']);
 }
 ?>
