@@ -1,5 +1,7 @@
 <?php
-    session_start();
+	if (session_status() == PHP_SESSION_NONE) {
+    session_start(); 
+}
 ?>
 
 <!doctype html>
@@ -14,10 +16,12 @@
 
 	  	<link href="css/header-login-register.css" rel="stylesheet">
 	  	<link rel="stylesheet" href="css/font-awesome.css">
+	  	<link rel = "stylesheet" type = "text/css" href = "css/newpost.css">
 
 	  	<script src="js/jquery-1.10.2.js.download" type="text/javascript"></script>
 	  	<script src="js/bootstrap.js.download" type="text/javascript"></script>
 	  	<script src="js/login-register.js.download" type="text/javascript"></script>
+	  	
     </head>
 <body>
 
