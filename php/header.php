@@ -41,7 +41,7 @@
     }
 
 	$loggedin = isset($_SESSION['username']);
-	
+
     // create an array of categories
     require_once('../php/connect.php');
     $result = $db_conn->query("SELECT name FROM Category;");
@@ -61,7 +61,7 @@
         {
             session_unset();
             session_destroy();
-            require('../templates/header_login.php');	
+            require('../templates/header_login.php');
         }
         else // logged in
             require('../templates/header_user.php');
@@ -74,7 +74,6 @@
     }
     else
     {
-        $prompt = true;
-        require('../templates/header_login.php');	
+        require('../templates/header_login.php');
     }
 ?>
