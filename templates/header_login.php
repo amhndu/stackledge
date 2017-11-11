@@ -80,7 +80,7 @@ function validate(){
 	if(document.getElementById('regpassword').value == document.getElementById('regpassword_confirmation').value)
 		document.getElementById('regform').submit();
 	else
-		shakeModalreg("Passwords don't match");
+		shakeModalRegister("Passwords don't match");
 }
 </script>
 
