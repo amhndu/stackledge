@@ -22,8 +22,10 @@
 </div>
 </header>
 
-
-<h1><center>All Posts</center></h1>
+<center>
+	<h1>All Posts</h1>
+	<h4><a href="">Trending</a> | <a href="">Top</a></h4>
+</center>
 <hr>
 
 

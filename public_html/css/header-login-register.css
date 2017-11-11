@@ -409,10 +409,19 @@ body {
     background-color: #5c6166;
 }
 
-h1 center{
+center h1{
   margin-top: 16px;
   margin-bottom: 0px;
   font-size: 32px;
+}
+ center h4 a, center h4 a:hover{
+  color:#5383d3;
+  width:49%;
+  text-decoration: none;
+}
+center h4 a:hover{
+  border-bottom: 1px dashed #71B559
+
 }
 hr{
   margin:20px 60px 0px 60px;
