@@ -5,6 +5,15 @@
 		<a href="#">Home</a>
 		<a href="#" class="selected">Blog</a>
 		<a href="#">Pricing</a>
+
+		<div class="dropdown">
+			<button class="dropbtn">Categories ▾</button>
+		  <div class="dropdown-content">
+		  	<a href="#">Category 1</a>
+				<a href="#">Category 2</a>
+		    <a href="#">Category 3</a>
+			</div>
+		 </div>
 	</nav>
 	<ul>
        <a href="javascript:void(0)" onclick="openLoginModal();"><?php echo $_SESSION['username']; ?></a>
@@ -17,4 +26,3 @@
 	</ul>
 </div>
 </header>
-
