@@ -102,7 +102,10 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
             {
                 $post_votes = $post_upvotes - $post_downvotes;
                 $post_time  = human_timediff_from_mysql($post_timestamp);
-                $post_url_domain = parse_url($post_url)["host"];
+                if(array_key_exists("host", parse_url($post_url)))
+                	$post_url_domain = parse_url($post_url)["host"];
+                else
+                	$post_url_domain = '';
                 require("../templates/post.php");
             }
         }

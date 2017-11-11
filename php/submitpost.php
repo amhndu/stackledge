@@ -1,6 +1,7 @@
 <?php
 
 	session_start();
+	if(isset($_SESSION['Posterror'])) echo 'error posting';
 	require('connect.php');
 	
 	$stmt = $db_conn->prepare('INSERT INTO Post(url, submission_time, upvotes, downvotes, owner, category, title) values(?, ?, ?, ?, ?, ?, ?)');
@@ -15,10 +16,9 @@
 	
 	$stmt->bind_param("ssiisss", $url, $datetime, $uv, $dv, $owner, $category, $title);
 	$stmt->execute();
-	echo $stmt->affected_rows;
 	
-	if($stmt->affected_rows != 1)
-		{ echo 'error posting'; exit();}
+	if($stmt->affected_rows == 1)
+		{ header('Location: ../public_html/user.php?u='.$_SESSION['username']); }
 		
-	else echo 'done';
+	
 ?>

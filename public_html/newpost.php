@@ -2,12 +2,11 @@
 	session_start();
 	if(!isset($_SESSION['username']))
 		header('Location: index.php');
-		
+	$content_heading = 'New Post';
 	require('../php/header.php');
 	
-	echo '
-	<div class="header" style="width:70%">
-            <h1>New Post</h1>
+	?>
+	
     </div>
 	<div style="width:100%;">
 	<form action = ../php/submitpost.php method = "post">
@@ -27,9 +26,10 @@
 	<label for="category">Category</label>
 	<div class="form_input" style="padding-top:10px;">
 		<select name="category">
-		  <option value="compsci">foo</option>
-		  <option value="saab">bar</option>
-		  <option value="mercedes">test</option>
+		
+		<?php foreach($categories as $cat) { echo '<option value='.$cat.'>'.$cat.'</option>'; } ?>
+		
+
 		</select>
 	</div>
 
@@ -41,6 +41,4 @@
 </div>
 
 	</body>
-</html>'
-	
-?>
+</html>
