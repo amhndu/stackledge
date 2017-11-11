@@ -1,5 +1,5 @@
 <div class="newpost">
-  <form action="">
+  <form action="submitpost.php">
 
     <label for="title">Title</label>
     <input type="text" id="title" name="Title" placeholder="Title..">
@@ -9,9 +9,10 @@
 
     <label for="category">Category</label>
     <select name="category">
-		  <option value="foo">foo</option>
-		  <option value="bar">bar</option>
-		  <option value="test">test</option>
+          <?php
+            foreach ($categories as $cat)
+                echo "<option value='$cat'>$cat</option>";
+		  ?>
 		</select>
 
     <input type="submit" value="Submit">

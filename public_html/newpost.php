@@ -1,44 +1,15 @@
 <?php
-	session_start();
-	if(!isset($_SESSION['username']))
-		header('Location: index.php');
-	$content_heading = 'New Post';
-	require('../php/header.php');
-	
-	?>
-	
-    </div>
-	<div style="width:100%;">
-	<form action = ../php/submitpost.php method = "post">
+    session_start();
 
-	<label for="url">URL</label>
-	<div class="form_input">
-	<input type="text" name="url" placeholder="https://"/>
-	</div>
-	<br /><br />
+    if(!isset($_SESSION['username']))
+        header('Location: index.php');
 
-	<label for="title">Title</label>
-	<div class="form_input">
-	<input type="text" name="title" placeholder="Title..." />
-	</div>
-	<br /><br />
+    $content_heading = 'New Post';
+    $hide_sort = true;
+    require('../php/header.php');
 
-	<label for="category">Category</label>
-	<div class="form_input" style="padding-top:10px;">
-		<select name="category">
-		
-		<?php foreach($categories as $cat) { echo '<option value='.$cat.'>'.$cat.'</option>'; } ?>
-		
+    require('../templates/newpost_template.php');
+?>
 
-		</select>
-	</div>
-
-	<br /><br />	<br /><br />	<br /><br />
-	<div style="text-align: right; width:50%">
-		<input type="submit" value="Post">
-    </div>
-	</form>
-</div>
-
-	</body>
+</body>
 </html>

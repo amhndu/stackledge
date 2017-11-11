@@ -25,7 +25,8 @@
 
 <center>
     <h1><?php echo $content_heading?></h1>
-    <h4><a href="<?php echo set_GET_parameter("s", "trend")?>">Trending</a> |
+    <h4 <?php if(isset($hide_sort)) echo 'style="display: none"'?> >
+        <a href="<?php echo set_GET_parameter("s", "trend")?>">Trending</a> |
         <a href="<?php echo set_GET_parameter("s", "new")?>">New</a> |
         <a href="<?php echo set_GET_parameter("s", "top")?>">Top</a></h4>
 </center>
