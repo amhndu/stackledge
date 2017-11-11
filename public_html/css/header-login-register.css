@@ -426,3 +426,61 @@ center h4 a:hover{
 hr{
   margin:20px 60px 0px 60px;
 }
+
+/** User Info **/
+
+.user-container {
+  font-family: sans-serif;
+  text-align: center;
+}
+.user-container .stats {
+  display: inline-block;
+  margin-top: 70px;
+}
+.user-container .stats .item.linkkarma .num {
+  color: #F5A76E;
+}
+.user-container .stats .item.commentkarma .num {
+  color: #79AFC3;
+}
+.user-container .stats .item.slinks .num {
+  color: #9DC79C;
+}
+.user-container .stats .item.scomments .num {
+  color: #987994;
+}
+.user-container .stats .item.membertime .num {
+  color: #C1B6A3;
+}
+.user-container .stats .item {
+  height: 58px;
+  float: left;
+  margin-right: 70px;
+}
+.user-container .stats .item .num {
+  float: left;
+  text-align: right;
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: 400;
+  margin-right: 20px;
+}
+.user-container .stats .item .desc {
+  text-align: left;
+  width: 100px;
+  float: left;
+  color: #a1a1a1;
+  font-size: 20px;
+}
+.user-container .stats .item:last-child {
+  margin-right: 0;
+}
+
+.user-container .user-contents .column .title {
+    font-size: 35px;
+    color: #cccccc;
+    font-weight: 300;
+    text-align: left;
+}
+.contents{
+    text-align: left;
