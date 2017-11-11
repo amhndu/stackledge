@@ -3,6 +3,8 @@
 	header('Location: index.php');
 
 	require_once('../php/connect.php');	
+	
+	$content_heading = 'Comments';
 	require('../php/header.php');
 
 	function displaycomment($cid, $db_conn)
