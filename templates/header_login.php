@@ -3,8 +3,7 @@
 	<h1><a href="#">Stack<span>ledge</span></a></h1>
 	<nav>
 		<a href="#">Home</a>
-		<a href="#" class="selected">Blog</a>
-		<a href="#">Pricing</a>
+		<a href="#" class="selected">New Post</a>
 
 		<div class="dropdown">
 			<button class="dropbtn">Categories ▾</button>
