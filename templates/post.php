@@ -8,14 +8,14 @@
       <div class="domain">(<a href="<?php echo $post_url_domain?>"><?php echo $post_url_domain?></a>)</div>
       <br />
     <small>
-        By <a href=""><?php echo $post_owner ?> </a> in
+        By <a href="user.php?u=<?php echo $post_owner?>"><?php echo $post_owner ?></a> in
         <a href="category.php?c=<?php echo $post_category?>"><?php echo $post_category ?></a>
         <br />
         <a href=""><div class="upvote">
         </div></a>
         <?php echo $post_votes ?>
         <a href=""><div class="downvote"></div></a>
-        &nbsp;&nbsp; <a href="">X comments &nbsp;&nbsp; Add Comment</a>
+        &nbsp;&nbsp; <a href=""><?php echo $post_num_comments ?> comments &nbsp;&nbsp; Add Comment</a>
         &nbsp;&nbsp; <?php echo $post_time?>
     </small>
   </div>

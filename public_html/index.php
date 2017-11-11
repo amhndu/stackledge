@@ -1,4 +1,5 @@
 <?php
+    $content_heading = 'Front';
     require('../php/header.php')
 ?>
 
@@ -6,7 +7,7 @@
 <?php
     require_once('../php/connect.php');
     require_once('../php/feed.php');
-    generate_feed($db_conn, FEED_ALL | (try_get("s") == "top" ? FEED_TOP : FEED_TRENDING));
+    generate_feed($db_conn, FEED_ALL | str_to_sort(try_get("s")));
     $db_conn->close();
 ?>
 </div>

@@ -10,7 +10,7 @@
 			<div class="dropdown-content">
                 <?php
                 foreach ($categories as $category)
-                    echo '<a href="category.php?c=$category">$category</a>';
+                    echo "<a href='category.php?c=$category'>$category</a>";
                 ?>
 			</div>
 		 </div>
@@ -24,8 +24,9 @@
 </header>
 
 <center>
-	<h1>All Posts</h1>
+    <h1><?php echo $content_heading?></h1>
     <h4><a href="<?php echo set_GET_parameter("s", "trend")?>">Trending</a> |
+        <a href="<?php echo set_GET_parameter("s", "new")?>">New</a> |
         <a href="<?php echo set_GET_parameter("s", "top")?>">Top</a></h4>
 </center>
 <hr>

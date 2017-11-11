@@ -1,14 +1,15 @@
 <?php
 
-define("FEED_ALL",       0);
-define("FEED_CATEGORY",  1);
-define("FEED_USER",      2);
-define("FEED_TYPE_MASK", 3);
+define("FEED_ALL",        0);
+define("FEED_CATEGORY",   1);
+define("FEED_USER",       2);
+define("FEED_TYPE_MASK",  3);
 
-define("FEED_TRENDING",  0);
-define("FEED_TOP",       4);
+define("FEED_TRENDING",   0);
+define("FEED_TOP",        4);
+define("FEED_NEW",        8);
 
-define("FEED_SORT_MASK", 4);
+define("FEED_SORT_MASK", 12);
 
 function time_helper($n, $str)
 {
@@ -17,10 +18,19 @@ function time_helper($n, $str)
     return $str . " ago";
 }
 
+function str_to_sort($str)
+{
+    switch($str)
+    {
+        case "top": return FEED_TOP;
+        case "new": return FEED_NEW;
+        case "trend": return FEED_TRENDING;
+    }
+    return FEED_TRENDING;
+}
+
 function human_timediff_from_mysql($mysqltime)
 {
-
-
     $time = new DateTime($mysqltime);
     $interval = $time->diff(new DateTime());
     if ($interval->y > 0)
@@ -45,13 +55,13 @@ function try_get($param, $default = "")
 
 function generate_feed($db_conn, $feed_flags, $opt_arg = null)
 {
-    $query = "SELECT title, url, upvotes, downvotes, owner, category, submission_time
+    $query = "SELECT title, url, upvotes, downvotes, owner, category, submission_time, num_comments
               FROM Post ";
 
+    $bound_arg = null;
     switch($feed_flags & FEED_TYPE_MASK)
     {
     case FEED_ALL:
-        $bound_arg = null;
         break;
     case FEED_CATEGORY:
         $query .= "WHERE category = ? ";
@@ -71,6 +81,9 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
     case FEED_TOP:
         $query .= " ORDER BY (upvotes - downvotes) DESC";
         break;
+    case FEED_NEW:
+        $query .= " ORDER BY submission_time DESC";
+        break;
     }
 
     if ($stmt = $db_conn->prepare($query))
@@ -81,7 +94,8 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
         }
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes, $post_owner, $post_category, $post_timestamp);
+        $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes,
+                           $post_owner, $post_category, $post_timestamp, $post_num_comments);
         if ($stmt->num_rows > 0)
         {
             while ($stmt->fetch())

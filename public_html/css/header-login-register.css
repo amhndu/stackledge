@@ -470,8 +470,10 @@ hr{
   width: 100px;
   float: left;
   color: #a1a1a1;
+  text-transform: capitalize;
   font-size: 20px;
 }
+
 .user-container .stats .item:last-child {
   margin-right: 0;
 }
