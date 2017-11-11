@@ -53,10 +53,17 @@ function try_get($param, $default = "")
     return $default;
 }
 
-function generate_feed($db_conn, $feed_flags, $opt_arg = null)
+// TODO Pagination
+function generate_feed($db_conn, $feed_flags, $opt_arg = null, $loggeduser = null)
 {
-    $query = "SELECT title, url, upvotes, downvotes, owner, category, submission_time, num_comments
-              FROM Post ";
+    $query = "SELECT Post.title, Post.url, Post.upvotes, Post.downvotes,
+                     Post.owner, Post.category, Post.submission_time, Post.num_comments";
+    if (!empty($loggeduser))
+        $query .= ", IFNULL(PostVotes.weight, 0)
+        FROM Post LEFT JOIN PostVotes
+        ON (Post.post_id = PostVotes.post_id AND PostVotes.username = ?)";
+    else
+        $query .= " FROM Post ";
 
     $bound_arg = null;
     switch($feed_flags & FEED_TYPE_MASK)
@@ -72,7 +79,7 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
         $bound_arg = $opt_arg;
         break;
     }
-    
+
     switch($feed_flags & FEED_SORT_MASK)
     {
     case FEED_TRENDING:
@@ -88,14 +95,22 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
 
     if ($stmt = $db_conn->prepare($query))
     {
-        if ($bound_arg)
-        {
+        if ($loggeduser && $bound_arg)
+            $stmt->bind_param("ss", $loggeduser, $bound_arg);
+        else if ($loggeduser)
+            $stmt->bind_param("s", $loggeduser);
+        else if ($bound_arg)
             $stmt->bind_param("s", $bound_arg);
-        }
+
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes,
-                           $post_owner, $post_category, $post_timestamp, $post_num_comments);
+        if ($loggeduser)
+            $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes,
+                               $post_owner, $post_category, $post_timestamp, $post_num_comments,
+                               $post_voted);
+        else
+            $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes,
+                               $post_owner, $post_category, $post_timestamp, $post_num_comments);
         if ($stmt->num_rows > 0)
         {
             while ($stmt->fetch())
