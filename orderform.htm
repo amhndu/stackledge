@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>Order form</title>
+		<style type="text/css">
+
+		body {
+            font-family: sans-serif;
+			margin: 1em 3em auto 3em;
+        }
+		label{
+		float:left; width:20%;
+		padding: 2px 20px;
+		margin: 8px 0;
+		font-weight: bold;
+		}
+
+		.form_input{
+		float:left; width:70%; margin-left:10px;}
+		input[type=text] {
+		padding: 12px 20px;
+		margin: 8px 0;
+		border-radius: 8px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		width: 70%;
+		}
+		.header{
+			padding: 2px 20px;
+		}
+
+		select{
+			width: 100px;
+			height: 30px;
+			padding-left : 10px;
+
+		}
+
+	</style>
+	</head>
+	<body>
+	<div class="header" style="width:70%">
+            <h1>New Post</h1>
+    </div>
+	<div style="width:100%;">
+	<form>
+
+	<label for="url">URL</label>
+	<div class="form_input">
+	<input type="text" name="url" placeholder="https://"/>
+	</div>
+	<br /><br />
+
+	<label for="title">Title</label>
+	<div class="form_input">
+	<input type="text" name="title" placeholder="Title..." />
+	</div>
+	<br /><br />
+
+	<label for="category">Category</label>
+	<div class="form_input" style="padding-top:10px;">
+		<select name="category">
+		  <option value="volvo">foo</option>
+		  <option value="saab">bar</option>
+		  <option value="mercedes">test</option>
+		</select>
+	</div>
+
+	<br /><br />	<br /><br />	<br /><br />
+	<div style="text-align: right; width:50%">
+		<input type="submit" value="Purchase">
+    </div>
+	</form>
+</div>
+
+	</body>
+</html>
