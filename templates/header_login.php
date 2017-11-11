@@ -8,9 +8,10 @@
 		<div class="dropdown">
 			<button class="dropbtn">Categories ▾</button>
 			<div class="dropdown-content">
-				<a href="#">Category 1</a>
-				<a href="#">Category 2</a>
-				<a href="#">Category 3</a>
+                <?php
+                foreach ($categories as $category)
+                    echo '<a href="category.php?c=$category">$category</a>';
+                ?>
 			</div>
 		 </div>
 	</nav>
@@ -21,6 +22,14 @@
 	</ul>
 </div>
 </header>
+
+<center>
+	<h1>All Posts</h1>
+    <h4><a href="<?php echo set_GET_parameter("s", "trend")?>">Trending</a> |
+        <a href="<?php echo set_GET_parameter("s", "top")?>">Top</a></h4>
+</center>
+<hr>
+
 
 <div class="container">
 	 <div class="modal fade login" id="loginModal" aria-hidden="true" style="display: none;">

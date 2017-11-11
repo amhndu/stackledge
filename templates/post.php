@@ -9,7 +9,7 @@
       <br />
     <small>
         By <a href=""><?php echo $post_owner ?> </a> in
-        <a href=""><?php echo $post_category ?></a>
+        <a href="category.php?c=<?php echo $post_category?>"><?php echo $post_category ?></a>
         <br />
         <a href=""><div class="upvote">
         </div></a>
