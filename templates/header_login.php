@@ -3,7 +3,8 @@
 	<h1><a href="#">Stack<span>ledge</span></a></h1>
 	<nav>
 		<a href="#">Home</a>
-		<a href="#" class="selected">New Post</a>
+		<a href="#" class="selected">Blog</a>
+		<a href="#">Pricing</a>
 
 		<div class="dropdown">
 			<button class="dropbtn">Categories ▾</button>
@@ -21,13 +22,6 @@
 	</ul>
 </div>
 </header>
-
-<center>
-	<h1>All Posts</h1>
-	<h4><a href="">Trending</a> | <a href="">Top</a></h4>
-</center>
-<hr>
-
 
 <div class="container">
 	 <div class="modal fade login" id="loginModal" aria-hidden="true" style="display: none;">
@@ -51,15 +45,15 @@
                          </div>
                     </div>
                     <div class="box">
-                        <div class="content registerBox" style="display:none;">
+                        <div class="content registerBox" style="display:none;" id="regModal">
                          <div class="form">
-                            <form method="post" html="{:multipart=&gt;true}" data-remote="true" action="index.php" accept-charset="UTF-8">
-                            <input id="username" class="form-control" type="text" placeholder="Username" name="username">
-                            <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                            <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                            <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                            <form method="post" html="{:multipart=&gt;true}" data-remote="true" action="signup.php" accept-charset="UTF-8" id = "regform">
+                            <input id="regusername" class="form-control" type="text" placeholder="Username" name="username">
+                            <input id="regemail" class="form-control" type="text" placeholder="Email" name="email">
+                            <input id="regpassword" class="form-control" type="password" placeholder="Password" name="password">
+                            <input id="regpassword_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
                             <input type = 'hidden' name = 'newuser' value = 'true'>
-                            <input class="btn btn-default btn-register" type="submit" >
+                            <input class="btn btn-default btn-register" type="button" onclick="validate()" value = "submit">
                             </form>
                             </div>
                         </div>
@@ -80,13 +74,31 @@
 	      </div>
 	  </div>
 </div>
+
+<script type = "text/javascript">
+function validate(){
+	if(document.getElementById('regpassword').value == document.getElementById('regpassword_confirmation').value)
+		document.getElementById('regform').submit();
+	else
+		shakeModalreg("Passwords don't match");
+}
+</script>
+
 <?php
 if($prompt)
 {
     echo '<script type="text/javascript">
      $(document).ready(function(){
         openLoginModal();' .
-        (isset($loginresult) and !$loginresult ? 'shakeModal();' : '') .
+        (isset($loginresult) and !$loginresult ? 'shakeModallogin();' : '') .
      ' }); </script>';
+}
+
+if(isset($errorMsg))
+{
+	echo '<script type = "text/javascript">
+	 $(document).ready(function(){
+		 shakeModalRegister('.$errorMsg.');
+	 }); </script>';
 }
 ?>
