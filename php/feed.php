@@ -54,9 +54,13 @@ function try_get($param, $default = "")
 }
 
 // TODO Pagination
-function generate_feed($db_conn, $feed_flags, $opt_arg = null, $loggeduser = null)
+function generate_feed($db_conn, $feed_flags, $opt_arg = null)
 {
-    $query = "SELECT Post.title, Post.url, Post.upvotes, Post.downvotes,
+    $loggeduser = null;
+    if (isset($_SESSION['username']))
+        $loggeduser = $_SESSION['username'];
+
+    $query = "SELECT Post.post_id, Post.title, Post.url, Post.upvotes, Post.downvotes,
                      Post.owner, Post.category, Post.submission_time, Post.num_comments";
     if (!empty($loggeduser))
         $query .= ", IFNULL(PostVotes.weight, 0)
@@ -105,11 +109,11 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null, $loggeduser = nul
         $stmt->execute();
         $stmt->store_result();
         if ($loggeduser)
-            $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes,
+            $stmt->bind_result($post_id, $post_title, $post_url, $post_upvotes, $post_downvotes,
                                $post_owner, $post_category, $post_timestamp, $post_num_comments,
-                               $post_voted);
+                               $post_cur_voted);
         else
-            $stmt->bind_result($post_title, $post_url, $post_upvotes, $post_downvotes,
+            $stmt->bind_result($post_id, $post_title, $post_url, $post_upvotes, $post_downvotes,
                                $post_owner, $post_category, $post_timestamp, $post_num_comments);
         if ($stmt->num_rows > 0)
         {
@@ -118,9 +122,30 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null, $loggeduser = nul
                 $post_votes = $post_upvotes - $post_downvotes;
                 $post_time  = human_timediff_from_mysql($post_timestamp);
                 if(array_key_exists("host", parse_url($post_url)))
-                	$post_url_domain = parse_url($post_url)["host"];
+                    $post_url_domain = parse_url($post_url)["host"];
                 else
-                	$post_url_domain = '';
+                    $post_url_domain = '';
+
+                $post_upvoted_class   = '';
+                $post_downvoted_class = '';
+
+                if (isset($post_cur_voted) && $post_cur_voted > 0)
+                    $post_upvoted_class = 'red';
+                if (isset($post_cur_voted) && $post_cur_voted < 0)
+                    $post_downvoted_class = 'red';
+
+                if ($loggeduser)
+                {
+                    $post_upvote_href = "return sendPostVote($post_id, 1, this)";
+                    $post_downvote_href = "return sendPostVote($post_id, -1, this)";
+                }
+                else
+                {
+                    $post_upvote_href = $post_downvote_href = "openLoginModal();
+                                                               shakeModal('You need to be logged in to do this!');
+                                                               return false;";
+                }
+
                 require("../templates/post.php");
             }
         }

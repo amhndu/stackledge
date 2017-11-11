@@ -121,6 +121,11 @@ small a div.vote:hover {
   -webkit-opacity: 0.8;
   -moz-opacity: 0.8;
   opacity: 0.8;
+  text-decoration: none;
+}
+
+small a:hover, small a:focus, small a:active {
+    text-decoration: none;
 }
 
 small a div.vote:active {
@@ -128,6 +133,21 @@ small a div.vote:active {
   -moz-opacity: 1;
   opacity: 1;
   color:red;
+  text-decoration: none;
+}
+
+small a.upvote div.vote.red {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  color:red;
+}
+
+small a.downvote div.vote.red {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  color: blue;
 }
 small a div.vote.red {
   -webkit-opacity: 1;

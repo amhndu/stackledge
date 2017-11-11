@@ -37,9 +37,9 @@ function openRegisterModal(){
 
 }
 
-function shakeModal(){
+function shakeModal(errorMsg = "Invalid email/password combination"){
     $('#loginModal .modal-dialog').addClass('shake');
-             $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
+             $('.error').addClass('alert alert-danger').html(errorMsg);
              $('input[type="password"]').val('');
              setTimeout( function(){
                 $('#loginModal .modal-dialog').removeClass('shake');

@@ -99,7 +99,7 @@ if($prompt)
     echo '<script type="text/javascript">
      $(document).ready(function(){
         openLoginModal();' .
-        (isset($loginresult) and !$loginresult ? 'shakeModallogin();' : '') .
+        (isset($loginresult) and !$loginresult ? 'shakeModal();' : '') .
      ' }); </script>';
 }
 

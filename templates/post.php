@@ -10,13 +10,13 @@
         By <a href="user.php?u=<?php echo $post_owner?>"><?php echo $post_owner ?></a> in
         <a href="category.php?c=<?php echo $post_category?>"><?php echo $post_category ?></a>
         <br />
-        <a href="">
-          <div class="vote">
+        <a class="upvote" href="javascript:void(0)" onclick="<?php echo $post_upvote_href?>">
+          <div class="vote <?php echo $post_upvoted_class?>">
             <i class="fa fa-caret-up fa-lg" aria-hidden="true"></i>
         </div></a>
         <?php echo $post_votes ?>
-        <a href="">
-          <div class="vote">
+        <a class="downvote" href="javascript:void(0)" onclick="<?php echo $post_downvote_href?>">
+          <div class="vote <?php echo $post_downvoted_class?>">
             <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i>
           </div>
         </a>
