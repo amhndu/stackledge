@@ -56,6 +56,7 @@ function try_get($param, $default = "")
 // TODO Pagination
 function generate_feed($db_conn, $feed_flags, $opt_arg = null)
 {
+
     $loggeduser = null;
     if (isset($_SESSION['username']))
         $loggeduser = $_SESSION['username'];
@@ -68,6 +69,7 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
         ON (Post.post_id = PostVotes.post_id AND PostVotes.username = ?)";
     else
         $query .= " FROM Post ";
+
 
     $bound_arg = null;
     switch($feed_flags & FEED_TYPE_MASK)
@@ -108,6 +110,7 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
 
         $stmt->execute();
         $stmt->store_result();
+
         if ($loggeduser)
             $stmt->bind_result($post_id, $post_title, $post_url, $post_upvotes, $post_downvotes,
                                $post_owner, $post_category, $post_timestamp, $post_num_comments,
@@ -115,6 +118,7 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
         else
             $stmt->bind_result($post_id, $post_title, $post_url, $post_upvotes, $post_downvotes,
                                $post_owner, $post_category, $post_timestamp, $post_num_comments);
+
         if ($stmt->num_rows > 0)
         {
             while ($stmt->fetch())
