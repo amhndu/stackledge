@@ -470,10 +470,8 @@ hr{
   width: 100px;
   float: left;
   color: #a1a1a1;
-  text-transform: capitalize;
   font-size: 20px;
 }
-
 .user-container .stats .item:last-child {
   margin-right: 0;
 }
@@ -486,3 +484,241 @@ hr{
 }
 .contents{
     text-align: left;
+}
+
+  /** Comment **/
+
+
+  .comments-container {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 16px;
+  }
+  .comments-container .comment.level1 {
+    margin-left: 0;
+  }
+  .comments-container .comment.level1 {
+    border-color: #7eb57d;
+  }
+  .comments-container .comment.level1 .cbox {
+    border-color: #7eb57d;
+  }
+  .comments-container .comment.level1 .cbox .tag {
+    background-color: #7eb57d;
+  }
+  .comments-container .comment.level1 .cbox .tag .plus {
+    color: #7eb57d;
+  }
+  .comments-container .comment.level1 .cbox .info {
+    background-color: rgba(126, 181, 125, 0.05);
+  }
+  .comments-container .comment.level1 .loadmore {
+    display: inline-block;
+    background-color: rgba(126, 181, 125, 0.05);
+    border: 1px solid rgba(126, 181, 125, 0.9);
+    color: #7eb57d;
+    text-decoration: none;
+    margin: 10px 0px 20px 10px;
+    font-size: 13px;
+    padding: 3px;
+    box-sizing: border-box;
+    font-weight: 700;
+    -webkit-opacity: 0.6;
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .comments-container .comment.level1 .loadmore:hover {
+    -webkit-opacity: 0.8;
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+  }
+  .comments-container .comment.level1 .loadmore:active {
+    transition: none;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+
+  .comments-container .comment.ts > .cbox > .info > .name > a {
+    color: #915430;
+    font-weight: 700;
+  }
+  .comments-container .comment.own > .cbox > .info > .name > a {
+    color: #376491;
+    font-weight: 700;
+  }
+  .comments-container .comment {
+    margin-left: 20px;
+    box-sizing: border-box;
+  }
+  .comments-container .comment .cbox {
+    position: relative;
+    padding-left: 0px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  .comments-container .comment .cbox .tag {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    min-width: 7px;
+    position: absolute;
+    height: 100%;
+    background: #606060;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+  .comments-container .comment .cbox .tag .plus {
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    color: #000000;
+    position: absolute;
+    right: 12px;
+    font-weight: 700;
+  }
+  .comments-container .comment .cbox .tag:hover {
+    -webkit-opacity: 0.8;
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+  }
+  .comments-container .comment .cbox .tag:active {
+    transition: none;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+  .comments-container .comment .cbox .info {
+    float: left;
+    width: 100%;
+    padding: 3px 10px 3px 15px;
+    box-sizing: border-box;
+    background: #000000;
+    font-size: 13px;
+  }
+  .comments-container .comment .cbox .info div {
+    float: left;
+  }
+  .comments-container .comment .cbox .info div.extra {
+    float: right;
+    margin-left: 10px;
+  }
+  .comments-container .comment .cbox .info div.extra a {
+    color: #559EC9;
+    text-decoration: none;
+  }
+  .comments-container .comment .cbox .info div.extra a:hover {
+    color: #457c9f;
+    text-decoration: none;
+  }
+  .comments-container .comment .cbox .info .name {
+    margin-right: 10px;
+    padding-top: 3px;
+  }
+  .comments-container .comment .cbox .info .name a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #000000;
+  }
+  .comments-container .comment .cbox .info .vote {
+    width: 70px;
+    text-align: center;
+  }
+  .comments-container .comment .cbox .info .vote .votes {
+    padding-top: 3px;
+    padding-left: 4px;
+    text-align: center;
+    margin-right: 4px;
+    font-weight: 700;
+    color: #666666;
+    -webkit-opacity: 0.6;
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+  }
+  .comments-container .comment .cbox .info .vote .iconfont {
+    color: #666666;
+    cursor: pointer;
+    -webkit-opacity: 0.6;
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+    margin-top: 3px;
+  }
+  .comments-container .comment .cbox .info .vote .iconfont:hover {
+    -webkit-opacity: 0.8;
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+  }
+  .comments-container .comment .cbox .info .vote .iconfont:active {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    color:red;
+  }
+
+  .comments-container .comment .cbox .info .vote .upvote {
+    margin-right: 4px;
+  }
+  .comments-container .comment .cbox .info .vote:hover .votes {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+  .comments-container .comment .cbox .info .vote.upvoted .iconfont.upvote,
+  .comments-container .comment .cbox .info .vote.upvoted .votes {
+    color: #34BD28;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+  .comments-container .comment .cbox .info .vote.downvoted .iconfont.downvote,
+  .comments-container .comment .cbox .info .vote.downvoted .votes {
+    color: #DB372B;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+  .comments-container .comment .cbox .info .source-link {
+    margin-left: 20px;
+  }
+  .comments-container .comment .cbox .info .source-link a {
+    color: #549EC9;
+  }
+  .comments-container .comment .cbox .info .date {
+    padding-top: 3px;
+    color: #999999;
+  }
+  .comments-container .comment .cbox .text {
+    overflow: hidden;
+    padding-left: 15px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .comments-container .comment .cbox .text a {
+    max-width: 600px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    top: 3px;
+    position: relative;
+    color: #4c6d7d;
+  }
+  .comments-container .comment .cbox .send-comment {
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+
+  .comments-container .comment .cbox .info .vote .iconfont.red {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    color:red;
+  }

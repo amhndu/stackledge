@@ -86,40 +86,43 @@ small  a{
 .card_right a{
   text-decoration: none;
 }
-.upvote {
+.vote {
   display: inline-grid;
   width: 10px;
   height: 10px;
   border: 0px;
   margin: 3px;
-  color: black;
-  background: url('../assets/upvote.gif') no-repeat;
 }
 
-.downvote {
-  display: inline-grid;
-  width: 10px;
-  height: 10px;
-  border: 0px;
-  margin: 3px;
-  color: black;
-  background: url('../assets/upvote.gif') no-repeat;
-  -moz-transform: scaleY(-1);
-  -o-transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);
-  transform: scaleY(-1);
-  filter: FlipV;
-  -ms-filter: "FlipV";
-}
 
 .posts{
   margin: 32px 48px 32px 48px;
   padding-left: 16px;
 }
-.domain{
-  font-size: 11px;
+.domain, .domain a {
+  color:#888;
+  font-size: 12px;
+  font-style: italic;
   display: inline;
 }
-.domain a{
-  color: #888;
+
+small a div.vote {
+  color: #666666;
+  cursor: pointer;
+  -webkit-opacity: 0.6;
+  -moz-opacity: 0.6;
+  opacity: 0.6;
+  margin-top: 3px;
+}
+small a div.vote:hover {
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+}
+
+small a div.vote:active {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  color:red;
 }

@@ -1,18 +1,18 @@
 <?php
 	if (session_status() == PHP_SESSION_NONE) {
-    session_start(); 
+    session_start();
 }
 ?>
 
 <!doctype html>
 <html>
     <head>
-        <title>Stackledge - The stack of knowledge</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-
-		<link rel="stylesheet" href="css/header-login-signup.css">
-		<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-		<link href="css/bootstrap.css" rel="stylesheet">
+      <title>Stackledge - The stack of knowledge</title>
+			
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+			<link rel="stylesheet" href="css/header-login-signup.css">
+			<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+			<link href="css/bootstrap.css" rel="stylesheet">
 
 	  	<link href="css/header-login-register.css" rel="stylesheet">
 	  	<link rel="stylesheet" href="css/font-awesome.css">
@@ -21,7 +21,8 @@
 	  	<script src="js/jquery-1.10.2.js.download" type="text/javascript"></script>
 	  	<script src="js/bootstrap.js.download" type="text/javascript"></script>
 	  	<script src="js/login-register.js.download" type="text/javascript"></script>
-	  	
+			<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
 <body>
 
