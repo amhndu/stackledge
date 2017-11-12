@@ -492,8 +492,8 @@ hr{
 
 
   .comments-container {
-    margin-top: 20px;
-    margin-bottom: 50px;
+/*     margin-top: 20px; */
+/*     margin-bottom: 50px; */
     padding: 16px;
   }
   .comments-container .comment.level1 {
@@ -697,7 +697,7 @@ hr{
   .comments-container .comment .cbox .info .reply {
     float: right;
   }
-  
+
   .comments-container .comment .cbox .info .reply a{
     color: #5383d3;
     padding-right: 8px;

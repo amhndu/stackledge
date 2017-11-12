@@ -14,18 +14,18 @@
           <div class="vote <?php echo $post_upvoted_class?>">
             <i class="fa fa-caret-up fa-lg" aria-hidden="true"></i>
         </div></a>
-        <?php echo $post_votes ?>
+        <span><?php echo $post_votes ?></span>
         <a class="downvote" href="javascript:void(0)" onclick="<?php echo $post_downvote_href?>">
           <div class="vote <?php echo $post_downvoted_class?>">
             <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i>
           </div>
         </a>
         &nbsp;&nbsp;
-        <a href="../public_html/comment.php?p=<?php echo $post_id; ?>">
+        <a href="../public_html/comments.php?p=<?php echo $post_id; ?>">
           <i class="fa fa-comments fa-lg" aria-hidden="true"></i>
           <?php echo $post_num_comments ?>
         </a> &nbsp;&nbsp;
-        <a href="../public_html/comment.php?p=<?php echo $post_id; ?>">Add Comment</a>&nbsp;&nbsp; <?php echo $post_time?>
+        <a href="../public_html/comments.php?p=<?php echo $post_id; ?>">Add Comment</a>&nbsp;&nbsp; <?php echo $post_time?>
     </small>
   </div>
 </div>
