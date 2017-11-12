@@ -52,7 +52,7 @@
             if ($vote > 0)
                 $comment_upvoted_class = 'red';
             else if ($vote < 0)
-                $comment_upvoted_class = 'red';
+                $comment_downvoted_class = 'red';
         }
 
         if ($loggeduser)
