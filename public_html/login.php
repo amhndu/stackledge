@@ -6,6 +6,7 @@ $loggedin = isset($_SESSION['username']);
 
 if ($loggedin) // already logged in
 {
+    $content_heading = 'Already logged in';
     require('../php/header.php');
 }
 else if(!$loggedin && isset($_POST['username']) && isset($_POST['password'])) // ie. login attempt
@@ -29,7 +30,11 @@ else if(!$loggedin && isset($_POST['username']) && isset($_POST['password'])) //
         $_SESSION['loginfailed'] = true;
     }
     $stmt->close();
-    header('Location: index.php');
+
+    if (isset($_POST['location']))
+        header('Location: ' . $_POST['location']);
+    else
+        header('Location: index.php');
 }
 
 ?>

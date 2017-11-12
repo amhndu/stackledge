@@ -46,6 +46,16 @@ function vote_update(id, weight, element)
 
 function sendPostVote(id, weight, element)
 {
+    return sendVote("post", id, weight, element);
+}
+
+function sendCommentVote(id, weight, element)
+{
+    return sendVote("comment", id, weight, element);
+}
+
+function sendVote(type, id, weight, element)
+{
     // disable the buttons until we hear back from the server
     var element_cb = element.onclick,
         other_cb   = get_other(element).onclick;
@@ -53,11 +63,19 @@ function sendPostVote(id, weight, element)
     element.onclick = function() { return 0; };
     get_other(element).onclick = function() { return 0; };
 
+    var data;
+    if (type == "post")
+        data = {
+                post: id,
+                weight: weight
+        };
+    else
+        data = {
+                comment: id,
+                weight: weight
+        };
     $.post('vote.php',
-        {
-            post: id,
-            weight: weight
-        },
+        data,
         function(data, status)
         {
             console.log(data, status);

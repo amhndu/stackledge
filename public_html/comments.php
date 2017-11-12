@@ -14,10 +14,29 @@
     $hide_sort = true;
     require('../php/header.php');
 
+    $loggeduser = null;
+    if (isset($_SESSION['username']))
+        $loggeduser = $_SESSION['username'];
+
+
     function display_comment($cid, $db_conn)
     {
-        $stmt = $db_conn->prepare('SELECT * FROM Comment where comment_id ='.$cid);
+        $cid = (int) $cid;
+        global $loggeduser;
+        if (!$loggeduser)
+            $query = "SELECT Comment.* FROM Comment where comment_id= ?";
+        else
+            $query = "SELECT Comment.*, IFNULL(CommentVotes.weight, 0) as voted
+                      FROM Comment LEFT JOIN CommentVotes
+                      ON (Comment.comment_id = CommentVotes.comment_id AND CommentVotes.username = ?)
+                      WHERE Comment.comment_id = ?";
+        $stmt = $db_conn->prepare($query);
+        if ($loggeduser)
+            $stmt->bind_param("si", $loggeduser, $cid);
+        else
+            $stmt->bind_param("i", $cid);
         $stmt->execute();
+        
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
 
@@ -25,9 +44,34 @@
         $comment_vote  = $row['upvotes'] - $row['downvotes'];
         $comment_time  = human_timediff_from_mysql($row['submission_time']);
         $comment_text  = $row['text'];
-        include("../templates/comment_template.php");
 
-        $stmt = $db_conn->prepare('SELECT comment_id FROM Comment where parent_id ='.$cid);
+        $comment_upvoted_class = $comment_downvoted_class = '';
+        if (isset($row['voted']))
+        {
+            $vote = $row['voted'];
+            if ($vote > 0)
+                $comment_upvoted_class = 'red';
+            else if ($vote < 0)
+                $comment_upvoted_class = 'red';
+        }
+
+        if ($loggeduser)
+        {
+            $comment_upvote_href = "return sendCommentVote($cid, 1, this)";
+            $comment_downvote_href = "return sendCommentVote($cid, -1, this)";
+        }
+        else
+        {
+            $comment_upvote_href = $comment_downvote_href = "openLoginModal();
+                                                       shakeModal('You need to be logged in to do this!');
+                                                       return false;";
+        }
+
+        include("../templates/comment_template.php");
+        $stmt->close();
+
+        $stmt = $db_conn->prepare('SELECT comment_id FROM Comment where parent_id = ?');
+        $stmt->bind_param("i", $cid);
         $stmt->execute();
         $result = $stmt->get_result();
         while($row = $result->fetch_assoc())
@@ -38,12 +82,18 @@
 
     }
 
+    require_once('../php/feed.php');
+    generate_feed($db_conn, FEED_SELECT, $current_post);
+    echo '<br><br>';
+
 
     $stmt = $db_conn->prepare('SELECT comment_id FROM Comment where parent_id is NULL and post_id = ? ');
     $stmt->bind_param("i", $current_post);
     $stmt->execute();
     $result = $stmt->get_result();
 
+    if ($result->num_rows == 0)
+        echo 'No comments yet';
     while($row = $result->fetch_assoc())
     {
         display_comment($row['comment_id'], $db_conn);

@@ -3,7 +3,8 @@
 	<h1><a href="index.php">Stack<span>ledge</span></a></h1>
 	<nav>
 		<a href="index.php">Home</a>
-		<a href="newpost.php" class="selected">New Post</a>
+        <a href="javascript:void(0)" class="selected"
+                onclick="openLoginModal(); shakeModal('You need to be logged in to do this!'); return false;">New Post</a>
 
 		<div class="dropdown">
 			<button class="dropbtn">Categories ▾</button>
@@ -49,6 +50,7 @@
                                 <form method="post"  accept-charset="UTF-8" action = 'login.php'>
                                 <input id="username" class="form-control" type="text" placeholder="Username" name="username">
                                 <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                <input name="location" type="hidden" value="<?php echo $_SERVER['REQUEST_URI']?>">
                                 <input class="btn btn-default btn-login" type="submit" value="Login" >
                                 </form>
                             </div>

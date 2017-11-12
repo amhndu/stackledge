@@ -3,6 +3,7 @@
 define("FEED_ALL",        0);
 define("FEED_CATEGORY",   1);
 define("FEED_USER",       2);
+define("FEED_SELECT",     3);
 define("FEED_TYPE_MASK",  3);
 
 define("FEED_TRENDING",   0);
@@ -55,19 +56,26 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
         $query .= "WHERE owner = ? ";
         $bound_arg = $opt_arg;
         break;
+    case FEED_SELECT:
+        $query .= "WHERE Post.post_id = ? ";
+        $bound_arg = $opt_arg;
+        break;
     }
 
-    switch($feed_flags & FEED_SORT_MASK)
+    if (($feed_flags & FEED_TYPE_MASK) != FEED_SELECT)
     {
-    case FEED_TRENDING:
-        $query .= " ORDER BY ((upvotes - downvotes - 1) / POW(now() - submission_time, 1.8)) DESC";
-        break;
-    case FEED_TOP:
-        $query .= " ORDER BY (upvotes - downvotes) DESC";
-        break;
-    case FEED_NEW:
-        $query .= " ORDER BY submission_time DESC";
-        break;
+        switch($feed_flags & FEED_SORT_MASK)
+        {
+        case FEED_TRENDING:
+            $query .= " ORDER BY ((upvotes - downvotes - 1) / POW(now() - submission_time, 1.8)) DESC";
+            break;
+        case FEED_TOP:
+            $query .= " ORDER BY (upvotes - downvotes) DESC";
+            break;
+        case FEED_NEW:
+            $query .= " ORDER BY submission_time DESC";
+            break;
+        }
     }
 
     if ($stmt = $db_conn->prepare($query))

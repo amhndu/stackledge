@@ -18,7 +18,7 @@
 	<ul>
        <a href="user.php?u=<?php echo $_SESSION['username']?>"><?php echo $_SESSION['username']; ?></a>
        |
-       <form method = 'post' style="display:inline-block;" action = 'index.php' id = 'form' >
+       <form method = 'post' style="display:inline-block;" action = "<?php echo $_SERVER['REQUEST_URI']?>" id = 'form' >
        <input type = 'hidden' name = 'logout' value = '1'>
        <a href="" data-toggle="modal" onclick = 'document.getElementById("form").submit();'>Logout</a>
        </form>

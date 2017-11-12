@@ -484,9 +484,7 @@ hr{
 
 
   .comments-container {
-    margin-top: 20px;
-    margin-bottom: 50px;
-    padding: 16px;
+    padding: 8px 16px 0px 16px;
   }
   .comments-container .comment.level1 {
     margin-left: 0;
