@@ -465,6 +465,7 @@ hr{
   float: left;
   color: #a1a1a1;
   font-size: 20px;
+  text-transform: capitalize;
 }
 .user-container .stats .item:last-child {
   margin-right: 0;

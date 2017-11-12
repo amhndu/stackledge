@@ -1,11 +1,11 @@
 <div class="newpost">
-  <form action="submitpost.php">
+  <form action="submitpost.php" method="post">
 
     <label for="title">Title</label>
-    <input type="text" id="title" name="Title" placeholder="Title..">
+    <input type="text" id="title" name="title" placeholder="Title..">
 
     <label for="url">URL</label>
-    <input type="text" id="url" name="lastname" placeholder="http://..">
+    <input type="text" id="url" name="url" placeholder="http://..">
 
     <label for="category">Category</label>
     <select name="category">

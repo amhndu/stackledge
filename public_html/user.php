@@ -36,7 +36,7 @@
         $stmt->fetch();
         $stmt->close();
 
-        $user_age = explode(' ', human_timediff_from_mysql($user_joindate));
+        $user_age = explode(' ', human_timediff_from_mysql($user_joindate, true));
         require('../templates/userinfo.php');
 
         generate_feed($db_conn,

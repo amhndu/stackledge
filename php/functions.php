@@ -7,7 +7,7 @@ function time_helper($n, $str)
     return $str . " ago";
 }
 
-function human_timediff_from_mysql($mysqltime)
+function human_timediff_from_mysql($mysqltime, $day = false)
 {
     $time = new DateTime($mysqltime);
     $interval = $time->diff(new DateTime());
@@ -15,7 +15,7 @@ function human_timediff_from_mysql($mysqltime)
         return time_helper($interval->y, "year");
     if ($interval->m > 0)
         return time_helper($interval->m, "month");
-    if ($interval->d > 0)
+    if ($interval->d > 0 || $day)
         return time_helper($interval->d, "day");
     if ($interval->h > 0)
         return time_helper($interval->h, "hour");
