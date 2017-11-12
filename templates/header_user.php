@@ -1,8 +1,8 @@
 <header class="header-login-signup">
 <div class="header-limiter">
-	<h1><a href="#">Stack<span>ledge</span></a></h1>
+	<h1><a href="index.php">Stack<span>ledge</span></a></h1>
 	<nav>
-		<a href="#">Home</a>
+		<a href="index.php">Home</a>
 		<a href="newpost.php" class="selected">New Post</a>
 
 		<div class="dropdown">
