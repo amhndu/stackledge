@@ -13,7 +13,6 @@
     <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/header-login-register.css" rel="stylesheet">
 
     <script src="js/jquery-1.10.2.js.download" type="text/javascript"></script>
     <script src="js/bootstrap.js.download" type="text/javascript"></script>
