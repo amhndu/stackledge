@@ -465,7 +465,6 @@ hr{
   float: left;
   color: #a1a1a1;
   font-size: 20px;
-  text-transform: capitalize;
 }
 .user-container .stats .item:last-child {
   margin-right: 0;
@@ -717,11 +716,18 @@ hr{
     box-sizing: border-box;
   }
 
-  .comments-container .comment .cbox .info .vote .iconfont.red {
+  .upvote .red {
     -webkit-opacity: 1;
     -moz-opacity: 1;
     opacity: 1;
     color:red;
+  }
+
+   .downvote .red {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    color:blue;
   }
 
   /** New Post **/
@@ -813,6 +819,9 @@ hr{
     -moz-border-radius: 0 10px 10px 0;
     margin-left: 16px;
   }
+  body .card_right a{
+    text-decoration: none;
+  }
   body .card_right h1 {
     color: black;
     display: inline;
@@ -872,6 +881,7 @@ hr{
     font-size: 12px;
     font-style: italic;
     display: inline;
+    text-decoration: underline;
   }
 
   small a.comment{
@@ -897,9 +907,9 @@ hr{
     opacity: 1;
     color:red;
   }
+
   small a div.vote.red {
     -webkit-opacity: 1;
     -moz-opacity: 1;
     opacity: 1;
-    color:red;
   }
