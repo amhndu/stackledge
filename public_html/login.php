@@ -17,18 +17,27 @@ else if(!$loggedin && isset($_POST['username']) && isset($_POST['password'])) //
 
     $stmt->execute();
     $result = $stmt->get_result();
-    $row = $result->fetch_array(MYSQLI_NUM);
 
-    $_POST['password'] = str_replace(PHP_EOL, '', $_POST['password']);
-
-    if($row[0] == hash('sha256', $_POST['password']))
+    if ($result->num_rows == 1)
     {
-        $_SESSION['username'] = $_POST['username'];
+        $row = $result->fetch_array(MYSQLI_NUM);
+
+        $_POST['password'] = str_replace(PHP_EOL, '', $_POST['password']);
+
+        if($row[0] == hash('sha256', $_POST['password']))
+        {
+            $_SESSION['username'] = $_POST['username'];
+        }
+        else
+        {
+            $_SESSION['loginfailed'] = true;
+        }
     }
     else
     {
         $_SESSION['loginfailed'] = true;
     }
+
     $stmt->close();
 
     if (isset($_POST['location']))

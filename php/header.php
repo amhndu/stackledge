@@ -55,9 +55,9 @@
     else
         $category = ["none found"];
 
-    $prompt = false;
 	if($loggedin)
 	{
+        $prompt = false;
         if(isset($_POST['logout'])) // logged in but logging out now
         {
             session_unset();
@@ -75,6 +75,7 @@
     }
     else
     {
+        $prompt = false;
         require('../templates/header_login.php');
     }
 ?>

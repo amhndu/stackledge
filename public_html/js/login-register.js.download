@@ -37,7 +37,7 @@ function openRegisterModal(){
 
 }
 
-function shakeModal(errorMsg = "Invalid email/password combination"){
+function shakeModal(errorMsg = "User not found or incorrect password"){
     $('#loginModal .modal-dialog').addClass('shake');
              $('.error').addClass('alert alert-danger').html(errorMsg);
              $('input[type="password"]').val('');

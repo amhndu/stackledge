@@ -12,14 +12,16 @@
 
 		if($stmt->affected_rows == -1)
 		{
-			$_SESSION['errorMsg'] = 'username taken';
+			$_SESSION['errorMsg'] = 'Username already taken';
 		}
 		else if($stmt->affected_rows == 1)
 			$_SESSION['username'] = $_POST['username'];
 	}
 	else
 	{
-	 	$_SESSION['errorMsg'] = 'parameter error';
+	 	$_SESSION['errorMsg'] = 'Some error occurred.';
+        if ($_POST['password'] && $_POST['password_confirmation'] && ($_POST['password'] == $_POST['password_confirmation']))
+            $_SESSION['errorMsg'] = 'Confirm password does not match';
 	}
 
 	header('Location: index.php');
