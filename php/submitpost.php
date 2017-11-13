@@ -18,7 +18,7 @@
 	$stmt->execute();
 	
 	if($stmt->affected_rows == 1)
-		{ header('Location: ../public_html/user.php?u='.$_SESSION['username']); }
+		{ header('Location: user.php?u='.$_SESSION['username']); }
 		
 	
 ?>
