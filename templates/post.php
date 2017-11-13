@@ -21,11 +21,11 @@
           </div>
         </a>
         &nbsp;&nbsp;
-        <a href="../public_html/comments.php?p=<?php echo $post_id; ?>">
+        <a href="comments.php?p=<?php echo $post_id; ?>">
           <i class="fa fa-comments fa-lg" aria-hidden="true"></i>
           <?php echo $post_num_comments ?>
         </a> &nbsp;&nbsp;
-        <a href="../public_html/comments.php?p=<?php echo $post_id; ?>">Add Comment</a>&nbsp;&nbsp; <?php echo $post_time?>
+        <a href="comments.php?p=<?php echo $post_id; ?>">Add Comment</a>&nbsp;&nbsp; <?php echo $post_time?>
     </small>
   </div>
 </div>
