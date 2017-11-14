@@ -1,8 +1,0 @@
-<?php
-
-$dbhost     = "localhost";
-$dbuser     = "user";
-$dbpass     = "dbpassword";
-$database   = "stackledge";
-
-?>
