@@ -37,7 +37,7 @@ function openRegisterModal(){
 
 }
 
-function shakeModal(errorMsg = "User not found or incorrect password"){
+function shakeModal(errorMsg = "You need to be logged in first!"){
     $('#loginModal .modal-dialog').addClass('shake');
              $('.error').addClass('alert alert-danger').html(errorMsg);
              $('input[type="password"]').val('');

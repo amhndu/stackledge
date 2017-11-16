@@ -102,7 +102,7 @@ if($prompt)
     echo '<script type="text/javascript">
      $(document).ready(function(){
         openLoginModal();' .
-        ((isset($loginresult) and !$loginresult) ? 'shakeModal();' : '') .
+        ((isset($loginresult) and !$loginresult) ? 'shakeModal("User not found or incorrect password");' : 'shakeModal()') .
      ' }); </script>';
 }
 

@@ -70,12 +70,19 @@
     else if (isset($_SESSION['loginfailed']))
     {
         $loginresult = false;
+        unset($_SESSION['loginfailed']);
         $prompt = true;
         require('../templates/header_login.php');
     }
     else
     {
-        $prompt = false;
+        if (isset($_SESSION['login-prompt']))
+        {
+            $prompt = $_SESSION['login-prompt'];
+            unset($_SESSION['login-prompt']);
+        }
+        else
+            $prompt = false;
         require('../templates/header_login.php');
     }
 ?>
