@@ -21,7 +21,7 @@ function expand_reply(button, post, cid)
     var showreply = container.children(".showreply");
     showreply.show();
 
-    showreply.html("<div class=\"send-comment\" style=\"\"> <div class=\"input-container\"><textarea placeholder=\"what do you think about it?\" style=\"height:46px; width:100%; overflow-y: hidden;\"></textarea></div> <div class=\"tools\"> <div class=\"format\"></div> <div class=\"button orange submit\"><button class=\"submit-comment\">post</button></div><div class=\"button orange submit\" style=\"margin-right:12px;\"><button class=\"cancel-comment\">cancel</button></div> <div class=\"commentsubmit-loader\"> </div> </div> <div class=\"clear\"></div> </div>");
+    showreply.html("<div class=\"send-comment\" style=\"\"> <div class=\"input-container\"><textarea style=\"height:46px; width:100%; overflow-y: hidden;\"></textarea></div> <div class=\"tools\"> <div class=\"format\"></div> <button class=\"button orange submit submit-comment\">post</button><button class=\"button orange submit cancel-comment\">cancel</button> <div class=\"commentsubmit-loader\"> </div> </div> <div class=\"clear\"></div> </div>");
 
     showreply.find(".cancel-comment").click(function(){
         showreply.hide();

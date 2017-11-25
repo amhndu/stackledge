@@ -7,7 +7,7 @@
         $_SESSION['login-prompt'] = true;
         header('Location: index.php');
     }
-    else if (isset($_POST['url'] && isset($_POST['category']) && isset($_POST['title']))
+    else if (isset($_POST['url']) && isset($_POST['category']) && isset($_POST['title']))
     {
         if(isset($_SESSION['Posterror'])) echo 'error posting';
         require('../php/connect.php');
