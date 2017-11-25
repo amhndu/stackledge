@@ -24,27 +24,12 @@
 
 
 <?php
-    function set_GET_parameter($param, $value)
-    {
-        $url = '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-
-        $url_parts = parse_url($url);
-
-        $params = [];
-        if (isset($url_parts['query']))
-            parse_str($url_parts['query'], $params);
-
-        $params[$param] = $value;     // Overwrite if exists
-
-        $url_parts['query'] = http_build_query($params);
-
-        return '//' . $url_parts['host'] . $url_parts['path'] . '?' . $url_parts['query'];
-    }
+    require_once('../php/connect.php');
+    require_once('../php/functions.php');
 
 	$loggedin = isset($_SESSION['username']);
 
     // create an array of categories
-    require_once('../php/connect.php');
     $result = $db_conn->query("SELECT name FROM Category;");
     $categories = [];
     if ($result->num_rows > 0)

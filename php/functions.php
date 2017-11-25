@@ -31,5 +31,22 @@ function try_get($param, $default = "")
     return $default;
 }
 
+function set_GET_parameter($param, $value)
+{
+    $url = '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+    $url_parts = parse_url($url);
+
+    $params = [];
+    if (isset($url_parts['query']))
+        parse_str($url_parts['query'], $params);
+
+    $params[$param] = $value;     // Overwrite if exists
+
+    $url_parts['query'] = http_build_query($params);
+
+    return '//' . $url_parts['host'] . $url_parts['path'] . '?' . $url_parts['query'];
+}
+
 
 ?>

@@ -12,6 +12,8 @@ define("FEED_NEW",        8);
 
 define("FEED_SORT_MASK", 12);
 
+define("POSTS_PER_PAGE",  3);
+
 require_once ('functions.php');
 
 function str_to_sort($str)
@@ -25,7 +27,6 @@ function str_to_sort($str)
     return FEED_TRENDING;
 }
 
-// TODO Pagination
 function generate_feed($db_conn, $feed_flags, $opt_arg = null)
 {
 
@@ -78,14 +79,21 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
         }
     }
 
+    $query .= " LIMIT " . POSTS_PER_PAGE . " OFFSET ?";
+
+    $page = (int) try_get("pg", "1");
+    $offset = ($page - 1) * POSTS_PER_PAGE;
+
     if ($stmt = $db_conn->prepare($query))
     {
         if ($loggeduser && $bound_arg)
-            $stmt->bind_param("ss", $loggeduser, $bound_arg);
+            $stmt->bind_param("ssi", $loggeduser, $bound_arg, $offset);
         else if ($loggeduser)
-            $stmt->bind_param("s", $loggeduser);
+            $stmt->bind_param("si", $loggeduser, $offset);
         else if ($bound_arg)
-            $stmt->bind_param("s", $bound_arg);
+            $stmt->bind_param("si", $bound_arg, $offset);
+        else
+            $stmt->bind_param("i", $offset);
 
         $stmt->execute();
         $stmt->store_result();
@@ -137,6 +145,14 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
             echo "Nothing interesting to see here.<br>";
             if ($db_conn->errno) echo $db_conn->error;
         }
+
+        echo '<div style="text-align: center">';
+        if ($page > 1)
+            echo "<a href='" . set_GET_parameter("pg", (string) ($page - 1)) . "'>Previous Page  </a>";
+        if ($stmt->num_rows == POSTS_PER_PAGE)
+            echo "<a href='" . set_GET_parameter("pg", (string) ($page + 1)) . "'>  Next Page</a>";
+        echo '</div>';
+
         $stmt->free_result();
     }
     else

@@ -76,10 +76,10 @@ function sendVote(type, id, weight, element)
         };
     $.post('vote.php',
         data,
-        function(data, status)
+        function(data, _status)
         {
-            console.log(data, status);
-            if (status == "success")
+            console.log(data, _status);
+            if (_status == "success")
             {
                 data = data.split(' ');
                 if (data[0] == 'success' && data[1] == id)

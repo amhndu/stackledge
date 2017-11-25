@@ -22,6 +22,7 @@
     function display_comment($cid, $db_conn)
     {
         $cid = (int) $cid;
+        global $current_post;
         global $loggeduser;
         if (!$loggeduser)
             $query = "SELECT Comment.* FROM Comment where comment_id= ?";
@@ -82,9 +83,18 @@
 
     }
 
+
     require_once('../php/feed.php');
     generate_feed($db_conn, FEED_SELECT, $current_post);
     echo '<br><br>';
+
+    $comment_submit_href = "openLoginModal();
+                               shakeModal('You need to be logged in to do this!');
+                               return false;";
+    if ($loggeduser)
+        $comment_submit_href = "send_comment_root($current_post)";
+    require('../templates/comment_box.php');
+    echo '<br>';
 
 
     $stmt = $db_conn->prepare('SELECT comment_id FROM Comment where parent_id is NULL and post_id = ? ');
@@ -92,12 +102,15 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
+    echo '<script src="js/comment.js" type="text/javascript"></script>';
+    echo '<div id="all-comments">';
     if ($result->num_rows == 0)
         echo 'No comments yet';
     while($row = $result->fetch_assoc())
     {
         display_comment($row['comment_id'], $db_conn);
     }
+    echo '</div>';
 ?>
 
 </body>
