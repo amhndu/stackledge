@@ -10,7 +10,7 @@ function send_comment_root(post_id)
 
     container.insertAdjacentHTML("afterbegin", "<div>posting the comment...</div>");
     var element = container.firstElementChild;
-    send_comment(container, post_id, comment, null);
+    send_comment(element, post_id, comment, null);
 }
 
 function expand_reply(button, post, cid)
@@ -19,6 +19,7 @@ function expand_reply(button, post, cid)
 
     var container = $(button).closest(".comments-container");
     var showreply = container.children(".showreply");
+    showreply.show();
 
     showreply.html("<div class=\"send-comment\" style=\"\"> <div class=\"input-container\"><textarea placeholder=\"what do you think about it?\" style=\"height:46px; width:100%; overflow-y: hidden;\"></textarea></div> <div class=\"tools\"> <div class=\"format\"></div> <div class=\"button orange submit\"><button class=\"submit-comment\">post</button></div><div class=\"button orange submit\" style=\"margin-right:12px;\"><button class=\"cancel-comment\">cancel</button></div> <div class=\"commentsubmit-loader\"> </div> </div> <div class=\"clear\"></div> </div>");
 

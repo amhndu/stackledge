@@ -35,6 +35,7 @@ if (isset($_SESSION['username']) && isset($_POST['post']) && isset($_POST['text'
         $comment_upvoted_class = $comment_downvoted_class = '';
         $comment_upvote_href = "return sendCommentVote(" . $_POST['post'] . ", 1, this)";
         $comment_downvote_href = "return sendCommentVote(" . $_POST['post'] . ", -1, this)";
+        $comment_reply_href = "expand_reply(this, " . $_POST['post'] . ", ". $stmt->insert_id . ")";
         include("../templates/comment_template.php");
     }
     else

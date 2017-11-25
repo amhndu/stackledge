@@ -60,10 +60,11 @@
         {
             $comment_upvote_href = "return sendCommentVote($cid, 1, this)";
             $comment_downvote_href = "return sendCommentVote($cid, -1, this)";
+            $comment_reply_href = "expand_reply(this, $current_post, $cid)";
         }
         else
         {
-            $comment_upvote_href = $comment_downvote_href = "openLoginModal();
+            $comment_reply_href = $comment_upvote_href = $comment_downvote_href = "openLoginModal();
                                                        shakeModal('You need to be logged in to do this!');
                                                        return false;";
         }

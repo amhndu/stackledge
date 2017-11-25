@@ -16,8 +16,8 @@
                         </a>
                         </div>
                         <div class="date"><?php echo $comment_time?></div>
-                        <div class="reply"><a href="javascript:void(0)" onclick="expand_reply(this,
-                                        <?php echo "$current_post, $cid" ?>)">reply</a></div>
+                        <div class="reply"><a href="javascript:void(0)" onclick="
+                                        <?php echo $comment_reply_href ?>">reply</a></div>
                     </div>
                     <div class="text">
                         <div class="md">
