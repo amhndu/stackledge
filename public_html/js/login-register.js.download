@@ -47,11 +47,12 @@ function shakeModal(errorMsg = "You need to be logged in first!"){
 }
 
 function shakeModalRegister(errorMsg){
-  showRegisterForm();
+    showRegisterForm();
+    $('#loginModal').modal('show');
     $('#loginModal .modal-dialog').addClass('shake');
-             $('.error').addClass('alert alert-danger').html(errorMsg);
-             $('input[type="password"]').val('');
-             setTimeout( function(){
-                $('#loginModal .modal-dialog').removeClass('shake');
-    }, 1000 );
+    $('.error').addClass('alert alert-danger').html(errorMsg);
+    $('input[type="password"]').val('');
+    setTimeout( function(){
+            $('#loginModal .modal-dialog').removeClass('shake');
+            }, 1000 );
 }

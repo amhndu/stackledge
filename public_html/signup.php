@@ -19,8 +19,8 @@
 	}
 	else
 	{
-	 	$_SESSION['errorMsg'] = 'Some error occurred.';
-        if ($_POST['password'] && $_POST['password_confirmation'] && ($_POST['password'] == $_POST['password_confirmation']))
+	 	$_SESSION['errorMsg'] = 'Invalid request';
+        if ($_POST['password'] && $_POST['password_confirmation'] && ($_POST['password'] != $_POST['password_confirmation']))
             $_SESSION['errorMsg'] = 'Confirm password does not match';
 	}
 
