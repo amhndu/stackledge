@@ -7,6 +7,7 @@ function send_comment_root(post_id)
     }
 
     var comment = document.getElementById('root-comment-box').value;
+    document.getElementById('root-comment-box').value = '';
 
     container.insertAdjacentHTML("afterbegin", "<div>posting the comment...</div>");
     var element = container.firstElementChild;
@@ -30,8 +31,9 @@ function expand_reply(button, post, cid)
     showreply.find(".submit-comment").click(function(){
         showreply.hide();
         container[0].firstElementChild.insertAdjacentHTML("afterend", "<div>posting the comment...</div>");
-        //console.log(container[0].children[1]);
-        send_comment(container[0].children[1], post, showreply.find("textarea")[0].value, cid);
+        var comment = showreply.find("textarea")[0].value;
+        showreply.find("textarea")[0].value = '';
+        send_comment(container[0].children[1], post, comment, cid);
     });
 }
 
