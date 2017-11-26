@@ -13,6 +13,6 @@
 
     require('../templates/newpost_template.php');
 ?>
-
+<?php include_once('footer.php') ?>
 </body>
 </html>

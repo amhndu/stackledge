@@ -21,9 +21,7 @@
 ?>
 </div>
 
-<div class="footer">
-  <p>Footer</p>
-</div>
+<?php include_once('footer.php') ?>
 
 </body>
 </html>

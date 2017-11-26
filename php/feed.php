@@ -12,7 +12,7 @@ define("FEED_NEW",        8);
 
 define("FEED_SORT_MASK", 12);
 
-define("POSTS_PER_PAGE",  2);
+define("POSTS_PER_PAGE",  10);
 
 require_once ('functions.php');
 
@@ -157,7 +157,7 @@ function generate_feed($db_conn, $feed_flags, $opt_arg = null)
             echo "<a href='" . set_GET_parameter("pg", (string) ($page + 1)) . "'><div class=\"direction next\" style=\"display: block;\">
 																				<i class=\"icon fa fa-angle-right fa-2x\" aria-hidden=\"true\"></i>
 																				<div class=\"label\">NEXT</div>
-																				</div>";
+																				</div></a>";
         echo '</div></div>';
 
         $stmt->free_result();
