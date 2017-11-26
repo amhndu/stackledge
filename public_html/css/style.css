@@ -647,7 +647,7 @@ hr{
     color: #000000;
   }
   .comments-container .comment .cbox .info .vote {
-    width: 70px;
+    width: 50px;
     display: inline;
     text-align: center;
   }
