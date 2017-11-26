@@ -1,8 +1,20 @@
 <?php
     require_once('../php/feed.php');
+    require_once('../php/connect.php');
     $username = try_get("u");
     if (!empty($username))
-        $content_heading = "$username";
+    {
+    	$stmt = $db_conn->prepare("SELECT username FROM User WHERE username = ?");
+    	$stmt->bind_param("s", $username);
+    	$stmt->execute();
+		$stmt->store_result();
+		if(!$stmt->num_rows)
+			{ $username = ''; $content_heading = 'Error: the username does not exist'; }
+		else
+			$content_heading = "$username";
+    	$stmt->close();
+    	require_once('../php/header.php');
+    }    
     else
         $content_heading = "Error: no username argument";
     require_once('../php/header.php');
