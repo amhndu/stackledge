@@ -21,7 +21,7 @@
   }
 
   body .card:hover{
-    background: #e8ecf0;
+    background: #ececec;
     transition: 0.5s background;
   }
 
