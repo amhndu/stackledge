@@ -10,10 +10,13 @@ A reddit clone.
 
 ## screenshots
 
-[!screenshot1](screenshots/stackledge1.png)
-[!screenshot2](screenshots/stackledge2.png)
-[!screenshot3](screenshots/stackledge3.png)
-[!screenshot4](screenshots/stackledge4.png)
+![screenshot1](screenshots/stackledge1.png)
+------------------------------
+![screenshot2](screenshots/stackledge2.png)
+------------------------------
+![screenshot3](screenshots/stackledge3.png)
+------------------------------
+![screenshot4](screenshots/stackledge4.png)
 
 
 ## deploying
